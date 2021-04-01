@@ -12,8 +12,6 @@ class EduExp extends React.Component {
                     <label htmlFor="school">School Name: </label><input id="school" type="text" onChange={dataSchool}/>
                     <label htmlFor="study">Title of Study: </label><input id="study" type="text" onChange={dataStudy}/>
                     <label htmlFor="date">Date of Study: </label><input id="date" type="date" onChange={dataDateOfStudy}/>
-                    <button>Edit</button>
-                    <button type="submit">Submit</button>
                 </form>
             </div>
         );

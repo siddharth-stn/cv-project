@@ -12,8 +12,6 @@ class GenInfo extends React.Component {
             <label htmlFor="name">Name: </label><input id="name" type="text" onChange={dataName}/>
             <label htmlFor="name">Email: </label><input id="email" type="email" onChange={dataEmail}/>
             <label htmlFor="name">Phone No. : </label><input id="phone" type="number" onChange={dataPhone}/>
-            <button>Edit</button>
-            <button type="submit">Submit</button>
         </form>
       </div>
     );

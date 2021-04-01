@@ -109,6 +109,8 @@ class App extends React.Component {
           <EduExp dataSchool={this.bringSchool} dataStudy={this.bringStudy} dataDateOfStudy={this.bringDateOfStudy}/>
           <PracExp dataCompany={this.bringCompany} dataPosition={this.bringPosition} dataTasks={this.bringTasks} dataDateFrom={this.bringDateFrom} dataDateTo={this.bringDateTo}/>  
         </div>
+        <button>Edit</button>
+        <button>Submit</button>
         <div>
           <h1>My Name is: {name}</h1>
           <h1>My Email is: {email}</h1>

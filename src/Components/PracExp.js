@@ -15,8 +15,6 @@ class PracExp extends React.Component {
                     <label htmlFor="task">Tasks: </label><input id="tasks" type="text" onChange={dataTasks}/>
                     <label htmlFor="dateFrom">Date From: </label><input id="dateFrom" type="date" onChange={dataDateFrom}/>
                     <label htmlFor="dateTo">Date To: </label><input id="dateTo" type="date" onChange={dataDateTo}/>
-                    <button>Edit</button>
-                    <button type="submit">Submit</button>
                 </form>
             </div>
         );

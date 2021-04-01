@@ -5,15 +5,17 @@ class GenInfo extends React.Component {
     super(props);
   }
   render() {
+    const {data} = this.props;
     return (
-    <div className="genDiv">
+      <div className="genDiv">
         <form>
-            <label htmlFor="name">Name: </label><input id="name" type="text"/>
+            <label htmlFor="name">Name: </label><input id="name" type="text" onChange={data}/>
             <label htmlFor="name">Email: </label><input id="email" type="email"/>
             <label htmlFor="name">Phone No. : </label><input id="phone" type="number"/>
+            <button>Edit</button>
+            <button type="submit">Submit</button>
         </form>
-        
-    </div>
+      </div>
     );
   }
 }

@@ -1,11 +1,11 @@
-import GenInfo from './components/GenInfo';
-import EduExp from './components/EduExp';
-import PracExp from './components/PracExp';
-import React from 'react';
+import GenInfo from "./components/GenInfo";
+import EduExp from "./components/EduExp";
+import PracExp from "./components/PracExp";
+import React from "react";
 
 class App extends React.Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",
@@ -19,6 +19,9 @@ class App extends React.Component {
       task: "",
       dateFrom: "",
       dateTo: "",
+      buttonClicked: false,
+      edit: false,
+      makeDisable: false,
     };
 
     this.bringName = this.bringName.bind(this);
@@ -32,85 +35,119 @@ class App extends React.Component {
     this.bringTasks = this.bringTasks.bind(this);
     this.bringDateFrom = this.bringDateFrom.bind(this);
     this.bringDateTo = this.bringDateTo.bind(this);
-  };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+  }
 
-  bringName (e) {
-    this.setState ({
+  bringName(e) {
+    this.setState({
       name: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringEmail (e) {
-    this.setState ({
+  bringEmail(e) {
+    this.setState({
       email: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringPhone (e) {
-    this.setState ({
+  bringPhone(e) {
+    this.setState({
       phone: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringSchool (e) {
-    this.setState ({
+  bringSchool(e) {
+    this.setState({
       school: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringStudy (e) {
-    this.setState ({
+  bringStudy(e) {
+    this.setState({
       study: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringDateOfStudy (e) {
-    this.setState ({
+  bringDateOfStudy(e) {
+    this.setState({
       dateOfStudy: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringCompany (e) {
-    this.setState ({
+  bringCompany(e) {
+    this.setState({
       company: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringPosition (e) {
-    this.setState ({
+  bringPosition(e) {
+    this.setState({
       position: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringTasks (e) {
-    this.setState ({
+  bringTasks(e) {
+    this.setState({
       task: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringDateFrom (e) {
-    this.setState ({
+  bringDateFrom(e) {
+    this.setState({
       dateFrom: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  bringDateTo (e) {
-    this.setState ({
+  bringDateTo(e) {
+    this.setState({
       dateTo: e.target.value,
+      buttonClicked: false,
     });
-  };
+  }
 
-  render () {
-    const {name, email, phone, school, study, dateOfStudy, company, position, task, dateFrom, dateTo} = this.state;
-    return (
-      <div>
-        <div>
-          <GenInfo dataName={this.bringName} dataEmail={this.bringEmail} dataPhone={this.bringPhone}/>
-          <EduExp dataSchool={this.bringSchool} dataStudy={this.bringStudy} dataDateOfStudy={this.bringDateOfStudy}/>
-          <PracExp dataCompany={this.bringCompany} dataPosition={this.bringPosition} dataTasks={this.bringTasks} dataDateFrom={this.bringDateFrom} dataDateTo={this.bringDateTo}/>  
-        </div>
-        <button>Edit</button>
-        <button>Submit</button>
+  handleEdit() {
+    this.setState({
+      buttonClicked: false,
+      edit: true,
+      makeDisable: false,
+    });
+  }
+
+  handleSubmit() {
+    this.setState({
+      buttonClicked: true,
+      makeDisable: true,
+    });
+  }
+
+  render() {
+    const {
+      name,
+      email,
+      phone,
+      school,
+      study,
+      dateOfStudy,
+      company,
+      position,
+      task,
+      dateFrom,
+      dateTo,
+    } = this.state;
+
+    if (this.state.buttonClicked == true) {
+      var element = (
         <div>
           <h1>My Name is: {name}</h1>
           <h1>My Email is: {email}</h1>
@@ -124,6 +161,36 @@ class App extends React.Component {
           <h1>Date from: {dateFrom}</h1>
           <h1>Date To: {dateTo}</h1>
         </div>
+      );
+    }
+
+    return (
+      <div>
+        <div>
+          <GenInfo
+            dataName={this.bringName}
+            dataEmail={this.bringEmail}
+            dataPhone={this.bringPhone}
+            state={this.state}
+          />
+          <EduExp
+            dataSchool={this.bringSchool}
+            dataStudy={this.bringStudy}
+            dataDateOfStudy={this.bringDateOfStudy}
+            state={this.state}
+          />
+          <PracExp
+            dataCompany={this.bringCompany}
+            dataPosition={this.bringPosition}
+            dataTasks={this.bringTasks}
+            dataDateFrom={this.bringDateFrom}
+            dataDateTo={this.bringDateTo}
+            state={this.state}
+          />
+        </div>
+        <button onClick={this.handleEdit}>Edit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
+        {element}
       </div>
     );
   }

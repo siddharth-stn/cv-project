@@ -4,21 +4,20 @@ import PracExp from "./components/PracExp";
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [school, setSchool] = useState("")
-  const [study, setStudy] = useState("")
-  const [dateOfStudy, setDateOfStudy] = useState("")
-  const [company, setCompany] = useState("")
-  const [position, setPosition] = useState("")
-  const [task, setTask] = useState("")
-  const [dateFrom, setDateFrom] = useState("")
-  const [dateTo, setDateTo] = useState("")
-  const [buttonClicked, setButtonClicked] = useState(false)
-  const [edit, setEdit] = useState(false)
-  const [makeDisable, setMakeDisable] = useState(false)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [school, setSchool] = useState("");
+  const [study, setStudy] = useState("");
+  const [dateOfStudy, setDateOfStudy] = useState("");
+  const [company, setCompany] = useState("");
+  const [position, setPosition] = useState("");
+  const [task, setTask] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [makeDisable, setMakeDisable] = useState(false);
 
   const state = {
     name: name,
@@ -43,65 +42,65 @@ const App = () => {
   };
 
   const bringEmail = (e) => {
-    setEmail(e.target.value)
-    setButtonClicked(false)
+    setEmail(e.target.value);
+    setButtonClicked(false);
   };
 
   const bringPhone = (e) => {
     setPhone(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringSchool = (e) => {
     setSchool(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringStudy = (e) => {
-    setStudy(e.target.value)
+    setStudy(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringDateOfStudy = (e) => {
-    setDateOfStudy(e.target.value)
+    setDateOfStudy(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringCompany = (e) => {
     setCompany(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringPosition = (e) => {
     setPosition(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringTasks = (e) => {
     setTask(e.target.value);
     setButtonClicked(false);
-  }
+  };
 
   const bringDateFrom = (e) => {
     setDateFrom(e.target.value);
-      setButtonClicked(false);
-  }
+    setButtonClicked(false);
+  };
 
   const bringDateTo = (e) => {
-    setDateTo (e.target.value);
-      setButtonClicked(false);
-  }
+    setDateTo(e.target.value);
+    setButtonClicked(false);
+  };
 
   const handleEdit = () => {
     setButtonClicked(false);
     setEdit(true);
     setMakeDisable(false);
-  }
+  };
 
   const handleSubmit = () => {
     setButtonClicked(true);
     setMakeDisable(true);
-  }
+  };
 
   if (buttonClicked == true) {
     var element = (
@@ -119,39 +118,38 @@ const App = () => {
         <h1>Date To: {dateTo}</h1>
       </div>
     );
-  };
+  }
 
   return (
     <div>
-        <div>
-          <GenInfo
-            dataName={bringName}
-            dataEmail={bringEmail}
-            dataPhone={bringPhone}
-            state={state}
-          />
-          <EduExp
-            dataSchool={bringSchool}
-            dataStudy={bringStudy}
-            dataDateOfStudy={bringDateOfStudy}
-            state={state}
-          />
-          <PracExp
-            dataCompany={bringCompany}
-            dataPosition={bringPosition}
-            dataTasks={bringTasks}
-            dataDateFrom={bringDateFrom}
-            dataDateTo={bringDateTo}
-            state={state}
-          />
-        </div>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleSubmit}>Submit</button>
-        {element}
+      <h1>CV - Application</h1>
+      <div>
+        <GenInfo
+          dataName={bringName}
+          dataEmail={bringEmail}
+          dataPhone={bringPhone}
+          state={state}
+        />
+        <EduExp
+          dataSchool={bringSchool}
+          dataStudy={bringStudy}
+          dataDateOfStudy={bringDateOfStudy}
+          state={state}
+        />
+        <PracExp
+          dataCompany={bringCompany}
+          dataPosition={bringPosition}
+          dataTasks={bringTasks}
+          dataDateFrom={bringDateFrom}
+          dataDateTo={bringDateTo}
+          state={state}
+        />
       </div>
-    ); 
-
-
+      <button onClick={handleEdit}>Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button onClick={handleSubmit}>Submit</button>
+      {element}
+    </div>
+  );
 };
 
 export default App;

@@ -1,0 +1,2 @@
+body{background-color:beige;width:50%;margin-left:auto;margin-right:auto;margin-top:50px}.eduDiv>form,.genDiv>form,.pracDiv>form{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;-webkit-justify-content:space-between;justify-content:space-between}.eduDiv>form>input,.genDiv>form>input,.pracDiv>form>input{font-size:1rem;width:400px}.eduDiv>form>label,.genDiv>form>label,.pracDiv>form>label{padding-top:10px;padding-bottom:3px}.pracDiv{padding-bottom:30px}
+/*# sourceMappingURL=main.edf90491.chunk.css.map */
